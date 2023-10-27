@@ -5,7 +5,6 @@ function getFacilities() {
     fetch('https://data.nasa.gov/resource/gvk9-iz74.json')
     .then(res => res.json())
     .then(data => {
-        // console.log(data)
         for (let i=0; i<data.length; i++) {
             let row = table.insertRow(-1)
             let centerCol = row.insertCell(0)
@@ -27,10 +26,9 @@ function getFacilities() {
 }
 
 function getWeather(zipcode, weatherCol) {
-    fetch(`http://api.weatherapi.com/v1/current.json?key=27060f3658d846fb800103918231910&q=${zipcode}`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=27060f3658d846fb800103918231910&q=${zipcode}`)
     .then(res => res.json())
     .then(data => {
-        // console.log(data)
         weatherCol.innerText = `${data.current.temp_f} °F \n ${data.current.condition.text}`
     })
     
